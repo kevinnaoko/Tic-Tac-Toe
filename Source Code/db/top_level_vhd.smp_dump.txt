@@ -1,0 +1,11 @@
+
+State Machine - |top_level_vhd|tictactoe:tictactoe0|cstate
+Name cstate.OVER cstate.winCheck cstate.P2_press cstate.P2_select cstate.P2_idle cstate.P1_press cstate.P1_select cstate.P1_idle 
+cstate.P1_idle 0 0 0 0 0 0 0 0 
+cstate.P1_select 0 0 0 0 0 0 1 1 
+cstate.P1_press 0 0 0 0 0 1 0 1 
+cstate.P2_idle 0 0 0 0 1 0 0 1 
+cstate.P2_select 0 0 0 1 0 0 0 1 
+cstate.P2_press 0 0 1 0 0 0 0 1 
+cstate.winCheck 0 1 0 0 0 0 0 1 
+cstate.OVER 1 0 0 0 0 0 0 1 

@@ -1,0 +1,989 @@
+Classic Timing Analyzer report for top_level_vhd
+Fri Nov 29 09:30:52 2019
+Quartus II Version 9.1 Build 222 10/21/2009 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'CLOCK_50'
+  7. Clock Hold: 'CLOCK_50'
+  8. tsu
+  9. tco
+ 10. th
+ 11. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2009 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                                                                                                                                  ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+--------------+
+; Type                         ; Slack                                    ; Required Time ; Actual Time                      ; From                                                     ; To                                                        ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A                                      ; None          ; 3.889 ns                         ; SW[0]                                                    ; tictactoe:tictactoe0|cstate.P1_idle                       ; --         ; CLOCK_50 ; 0            ;
+; Worst-case tco               ; N/A                                      ; None          ; 27.879 ns                        ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2] ; VGA_R[3]                                                  ; CLOCK_50   ; --       ; 0            ;
+; Worst-case th                ; N/A                                      ; None          ; 3.362 ns                         ; SW[2]                                                    ; tictactoe:tictactoe0|cstate.OVER                          ; --         ; CLOCK_50 ; 0            ;
+; Clock Setup: 'CLOCK_50'      ; N/A                                      ; None          ; 94.41 MHz ( period = 10.592 ns ) ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; 0            ;
+; Clock Hold: 'CLOCK_50'       ; Not operational: Clock Skew > Data Delay ; None          ; N/A                              ; tictactoe:tictactoe0|count[3]                            ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; 23           ;
+; Total number of failed paths ;                                          ;               ;                                  ;                                                          ;                                                           ;            ;          ; 23           ;
++------------------------------+------------------------------------------+---------------+----------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2C20F484C7       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; 0                  ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 85                 ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; On                 ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; CLOCK_50        ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'CLOCK_50'                                                                                                                                                                                                                                                                                                          ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                                                     ; To                                                        ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 94.41 MHz ( period = 10.592 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.376 ns               ;
+; N/A                                     ; 94.41 MHz ( period = 10.592 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.376 ns               ;
+; N/A                                     ; 94.41 MHz ( period = 10.592 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.376 ns               ;
+; N/A                                     ; 94.41 MHz ( period = 10.592 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.376 ns               ;
+; N/A                                     ; 97.35 MHz ( period = 10.272 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.017 ns               ;
+; N/A                                     ; 97.35 MHz ( period = 10.272 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.017 ns               ;
+; N/A                                     ; 97.35 MHz ( period = 10.272 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.017 ns               ;
+; N/A                                     ; 97.35 MHz ( period = 10.272 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.017 ns               ;
+; N/A                                     ; 97.36 MHz ( period = 10.271 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.016 ns               ;
+; N/A                                     ; 97.36 MHz ( period = 10.271 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.016 ns               ;
+; N/A                                     ; 97.36 MHz ( period = 10.271 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.016 ns               ;
+; N/A                                     ; 97.36 MHz ( period = 10.271 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 10.016 ns               ;
+; N/A                                     ; 99.55 MHz ( period = 10.045 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.788 ns                ;
+; N/A                                     ; 99.55 MHz ( period = 10.045 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.788 ns                ;
+; N/A                                     ; 99.55 MHz ( period = 10.045 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.788 ns                ;
+; N/A                                     ; 99.55 MHz ( period = 10.045 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.788 ns                ;
+; N/A                                     ; 101.85 MHz ( period = 9.818 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.889 ns                ;
+; N/A                                     ; 101.85 MHz ( period = 9.818 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.889 ns                ;
+; N/A                                     ; 101.85 MHz ( period = 9.818 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.889 ns                ;
+; N/A                                     ; 101.85 MHz ( period = 9.818 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.889 ns                ;
+; N/A                                     ; 102.12 MHz ( period = 9.792 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.535 ns                ;
+; N/A                                     ; 102.12 MHz ( period = 9.792 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.535 ns                ;
+; N/A                                     ; 102.12 MHz ( period = 9.792 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.535 ns                ;
+; N/A                                     ; 102.12 MHz ( period = 9.792 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.535 ns                ;
+; N/A                                     ; 102.76 MHz ( period = 9.731 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.782 ns                ;
+; N/A                                     ; 102.76 MHz ( period = 9.731 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.782 ns                ;
+; N/A                                     ; 102.76 MHz ( period = 9.731 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.782 ns                ;
+; N/A                                     ; 102.76 MHz ( period = 9.731 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.782 ns                ;
+; N/A                                     ; 103.04 MHz ( period = 9.705 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.489 ns                ;
+; N/A                                     ; 103.04 MHz ( period = 9.705 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.489 ns                ;
+; N/A                                     ; 103.04 MHz ( period = 9.705 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.489 ns                ;
+; N/A                                     ; 103.04 MHz ( period = 9.705 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.489 ns                ;
+; N/A                                     ; 103.50 MHz ( period = 9.662 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.733 ns                ;
+; N/A                                     ; 103.50 MHz ( period = 9.662 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.733 ns                ;
+; N/A                                     ; 103.50 MHz ( period = 9.662 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.733 ns                ;
+; N/A                                     ; 103.50 MHz ( period = 9.662 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.733 ns                ;
+; N/A                                     ; 105.34 MHz ( period = 9.493 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.253 ns                ;
+; N/A                                     ; 105.34 MHz ( period = 9.493 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.253 ns                ;
+; N/A                                     ; 105.34 MHz ( period = 9.493 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.253 ns                ;
+; N/A                                     ; 105.34 MHz ( period = 9.493 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.253 ns                ;
+; N/A                                     ; 105.99 MHz ( period = 9.435 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.169 ns                ;
+; N/A                                     ; 105.99 MHz ( period = 9.435 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.169 ns                ;
+; N/A                                     ; 105.99 MHz ( period = 9.435 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.169 ns                ;
+; N/A                                     ; 105.99 MHz ( period = 9.435 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.169 ns                ;
+; N/A                                     ; 106.07 MHz ( period = 9.428 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.479 ns                ;
+; N/A                                     ; 106.07 MHz ( period = 9.428 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.479 ns                ;
+; N/A                                     ; 106.07 MHz ( period = 9.428 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.479 ns                ;
+; N/A                                     ; 106.07 MHz ( period = 9.428 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.479 ns                ;
+; N/A                                     ; 106.69 MHz ( period = 9.373 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.157 ns                ;
+; N/A                                     ; 106.69 MHz ( period = 9.373 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.157 ns                ;
+; N/A                                     ; 106.69 MHz ( period = 9.373 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.157 ns                ;
+; N/A                                     ; 106.69 MHz ( period = 9.373 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.157 ns                ;
+; N/A                                     ; 107.68 MHz ( period = 9.287 ns )                    ; tictactoe:tictactoe0|b3[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.021 ns                ;
+; N/A                                     ; 107.68 MHz ( period = 9.287 ns )                    ; tictactoe:tictactoe0|b3[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.021 ns                ;
+; N/A                                     ; 107.68 MHz ( period = 9.287 ns )                    ; tictactoe:tictactoe0|b3[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.021 ns                ;
+; N/A                                     ; 107.68 MHz ( period = 9.287 ns )                    ; tictactoe:tictactoe0|b3[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.021 ns                ;
+; N/A                                     ; 107.78 MHz ( period = 9.278 ns )                    ; tictactoe:tictactoe0|b7[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.329 ns                ;
+; N/A                                     ; 107.78 MHz ( period = 9.278 ns )                    ; tictactoe:tictactoe0|b7[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.329 ns                ;
+; N/A                                     ; 107.78 MHz ( period = 9.278 ns )                    ; tictactoe:tictactoe0|b7[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.329 ns                ;
+; N/A                                     ; 107.78 MHz ( period = 9.278 ns )                    ; tictactoe:tictactoe0|b7[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.329 ns                ;
+; N/A                                     ; 107.96 MHz ( period = 9.263 ns )                    ; tictactoe:tictactoe0|b0[1]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.047 ns                ;
+; N/A                                     ; 107.96 MHz ( period = 9.263 ns )                    ; tictactoe:tictactoe0|b0[1]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.047 ns                ;
+; N/A                                     ; 107.96 MHz ( period = 9.263 ns )                    ; tictactoe:tictactoe0|b0[1]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.047 ns                ;
+; N/A                                     ; 107.96 MHz ( period = 9.263 ns )                    ; tictactoe:tictactoe0|b0[1]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.047 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.945 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.945 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.945 ns                ;
+; N/A                                     ; 108.89 MHz ( period = 9.184 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.945 ns                ;
+; N/A                                     ; 109.78 MHz ( period = 9.109 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.870 ns                ;
+; N/A                                     ; 109.78 MHz ( period = 9.109 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.870 ns                ;
+; N/A                                     ; 109.78 MHz ( period = 9.109 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.870 ns                ;
+; N/A                                     ; 109.78 MHz ( period = 9.109 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.870 ns                ;
+; N/A                                     ; 110.72 MHz ( period = 9.032 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.793 ns                ;
+; N/A                                     ; 110.72 MHz ( period = 9.032 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.793 ns                ;
+; N/A                                     ; 110.72 MHz ( period = 9.032 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.793 ns                ;
+; N/A                                     ; 110.72 MHz ( period = 9.032 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.793 ns                ;
+; N/A                                     ; 111.94 MHz ( period = 8.933 ns )                    ; tictactoe:tictactoe0|b6[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.984 ns                ;
+; N/A                                     ; 111.94 MHz ( period = 8.933 ns )                    ; tictactoe:tictactoe0|b6[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.984 ns                ;
+; N/A                                     ; 111.94 MHz ( period = 8.933 ns )                    ; tictactoe:tictactoe0|b6[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.984 ns                ;
+; N/A                                     ; 111.94 MHz ( period = 8.933 ns )                    ; tictactoe:tictactoe0|b6[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.984 ns                ;
+; N/A                                     ; 112.45 MHz ( period = 8.893 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.654 ns                ;
+; N/A                                     ; 112.45 MHz ( period = 8.893 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.654 ns                ;
+; N/A                                     ; 112.45 MHz ( period = 8.893 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.654 ns                ;
+; N/A                                     ; 112.45 MHz ( period = 8.893 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.654 ns                ;
+; N/A                                     ; 113.87 MHz ( period = 8.782 ns )                    ; tictactoe:tictactoe0|countTurn[2]                        ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.257 ns                ;
+; N/A                                     ; 113.87 MHz ( period = 8.782 ns )                    ; tictactoe:tictactoe0|countTurn[2]                        ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.257 ns                ;
+; N/A                                     ; 113.87 MHz ( period = 8.782 ns )                    ; tictactoe:tictactoe0|countTurn[2]                        ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.257 ns                ;
+; N/A                                     ; 113.87 MHz ( period = 8.782 ns )                    ; tictactoe:tictactoe0|countTurn[2]                        ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.257 ns                ;
+; N/A                                     ; 114.29 MHz ( period = 8.750 ns )                    ; tictactoe:tictactoe0|countTurn[1]                        ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.225 ns                ;
+; N/A                                     ; 114.29 MHz ( period = 8.750 ns )                    ; tictactoe:tictactoe0|countTurn[1]                        ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.225 ns                ;
+; N/A                                     ; 114.29 MHz ( period = 8.750 ns )                    ; tictactoe:tictactoe0|countTurn[1]                        ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.225 ns                ;
+; N/A                                     ; 114.29 MHz ( period = 8.750 ns )                    ; tictactoe:tictactoe0|countTurn[1]                        ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.225 ns                ;
+; N/A                                     ; 115.27 MHz ( period = 8.675 ns )                    ; tictactoe:tictactoe0|b5[0]                               ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.435 ns                ;
+; N/A                                     ; 115.27 MHz ( period = 8.675 ns )                    ; tictactoe:tictactoe0|b5[0]                               ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.435 ns                ;
+; N/A                                     ; 115.27 MHz ( period = 8.675 ns )                    ; tictactoe:tictactoe0|b5[0]                               ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.435 ns                ;
+; N/A                                     ; 115.27 MHz ( period = 8.675 ns )                    ; tictactoe:tictactoe0|b5[0]                               ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.435 ns                ;
+; N/A                                     ; 117.73 MHz ( period = 8.494 ns )                    ; tictactoe:tictactoe0|countTurn[0]                        ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.969 ns                ;
+; N/A                                     ; 117.73 MHz ( period = 8.494 ns )                    ; tictactoe:tictactoe0|countTurn[0]                        ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.969 ns                ;
+; N/A                                     ; 117.73 MHz ( period = 8.494 ns )                    ; tictactoe:tictactoe0|countTurn[0]                        ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.969 ns                ;
+; N/A                                     ; 117.73 MHz ( period = 8.494 ns )                    ; tictactoe:tictactoe0|countTurn[0]                        ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.969 ns                ;
+; N/A                                     ; 119.10 MHz ( period = 8.396 ns )                    ; tictactoe:tictactoe0|countTurn[3]                        ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.871 ns                ;
+; N/A                                     ; 119.10 MHz ( period = 8.396 ns )                    ; tictactoe:tictactoe0|countTurn[3]                        ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.871 ns                ;
+; N/A                                     ; 119.10 MHz ( period = 8.396 ns )                    ; tictactoe:tictactoe0|countTurn[3]                        ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.871 ns                ;
+; N/A                                     ; 119.10 MHz ( period = 8.396 ns )                    ; tictactoe:tictactoe0|countTurn[3]                        ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.871 ns                ;
+; N/A                                     ; 119.59 MHz ( period = 8.362 ns )                    ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.786 ns                ;
+; N/A                                     ; 121.17 MHz ( period = 8.253 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.744 ns                ;
+; N/A                                     ; 121.17 MHz ( period = 8.253 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.744 ns                ;
+; N/A                                     ; 126.89 MHz ( period = 7.881 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.949 ns                ;
+; N/A                                     ; 128.01 MHz ( period = 7.812 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.880 ns                ;
+; N/A                                     ; 132.26 MHz ( period = 7.561 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.590 ns                ;
+; N/A                                     ; 132.28 MHz ( period = 7.560 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.589 ns                ;
+; N/A                                     ; 132.71 MHz ( period = 7.535 ns )                    ; tictactoe:tictactoe0|cstate.P2_press                     ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.026 ns                ;
+; N/A                                     ; 132.71 MHz ( period = 7.535 ns )                    ; tictactoe:tictactoe0|cstate.P2_press                     ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.026 ns                ;
+; N/A                                     ; 133.48 MHz ( period = 7.492 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.521 ns                ;
+; N/A                                     ; 133.49 MHz ( period = 7.491 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.520 ns                ;
+; N/A                                     ; 136.35 MHz ( period = 7.334 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.361 ns                ;
+; N/A                                     ; 137.65 MHz ( period = 7.265 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.292 ns                ;
+; N/A                                     ; 137.97 MHz ( period = 7.248 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b0[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.700 ns                ;
+; N/A                                     ; 137.97 MHz ( period = 7.248 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b0[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.700 ns                ;
+; N/A                                     ; 138.66 MHz ( period = 7.212 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|cstate.OVER                          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.280 ns                ;
+; N/A                                     ; 138.73 MHz ( period = 7.208 ns )                    ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.209 ns                ;
+; N/A                                     ; 139.10 MHz ( period = 7.189 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|countTurn[2]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.236 ns                ;
+; N/A                                     ; 139.10 MHz ( period = 7.189 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|countTurn[1]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.236 ns                ;
+; N/A                                     ; 139.10 MHz ( period = 7.189 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|countTurn[0]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.236 ns                ;
+; N/A                                     ; 139.10 MHz ( period = 7.189 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|countTurn[3]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.236 ns                ;
+; N/A                                     ; 140.57 MHz ( period = 7.114 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|countTurn[2]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 140.57 MHz ( period = 7.114 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|countTurn[1]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 140.57 MHz ( period = 7.114 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|countTurn[0]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 140.57 MHz ( period = 7.114 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|countTurn[3]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.161 ns                ;
+; N/A                                     ; 140.71 MHz ( period = 7.107 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.462 ns                ;
+; N/A                                     ; 141.08 MHz ( period = 7.088 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b4[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.581 ns                ;
+; N/A                                     ; 141.08 MHz ( period = 7.088 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b4[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.581 ns                ;
+; N/A                                     ; 141.22 MHz ( period = 7.081 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.108 ns                ;
+; N/A                                     ; 142.09 MHz ( period = 7.038 ns )                    ; tictactoe:tictactoe0|b8[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.393 ns                ;
+; N/A                                     ; 142.11 MHz ( period = 7.037 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|countTurn[2]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.084 ns                ;
+; N/A                                     ; 142.11 MHz ( period = 7.037 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|countTurn[1]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.084 ns                ;
+; N/A                                     ; 142.11 MHz ( period = 7.037 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|countTurn[0]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.084 ns                ;
+; N/A                                     ; 142.11 MHz ( period = 7.037 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|countTurn[3]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.084 ns                ;
+; N/A                                     ; 142.45 MHz ( period = 7.020 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.355 ns                ;
+; N/A                                     ; 142.61 MHz ( period = 7.012 ns )                    ; tictactoe:tictactoe0|b4[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.039 ns                ;
+; N/A                                     ; 142.98 MHz ( period = 6.994 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.062 ns                ;
+; N/A                                     ; 143.86 MHz ( period = 6.951 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.306 ns                ;
+; N/A                                     ; 143.86 MHz ( period = 6.951 ns )                    ; tictactoe:tictactoe0|b6[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.286 ns                ;
+; N/A                                     ; 144.40 MHz ( period = 6.925 ns )                    ; tictactoe:tictactoe0|b1[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.993 ns                ;
+; N/A                                     ; 144.89 MHz ( period = 6.902 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b6[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.087 ns                ;
+; N/A                                     ; 144.89 MHz ( period = 6.902 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b6[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.087 ns                ;
+; N/A                                     ; 144.97 MHz ( period = 6.898 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|countTurn[2]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.945 ns                ;
+; N/A                                     ; 144.97 MHz ( period = 6.898 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|countTurn[1]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.945 ns                ;
+; N/A                                     ; 144.97 MHz ( period = 6.898 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|countTurn[0]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.945 ns                ;
+; N/A                                     ; 144.97 MHz ( period = 6.898 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|countTurn[3]                         ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.945 ns                ;
+; N/A                                     ; 145.10 MHz ( period = 6.892 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|cstate.OVER                          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.921 ns                ;
+; N/A                                     ; 145.12 MHz ( period = 6.891 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|cstate.OVER                          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.920 ns                ;
+; N/A                                     ; 145.31 MHz ( period = 6.882 ns )                    ; tictactoe:tictactoe0|b8[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.237 ns                ;
+; N/A                                     ; 145.48 MHz ( period = 6.874 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b1[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.326 ns                ;
+; N/A                                     ; 145.48 MHz ( period = 6.874 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b1[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.326 ns                ;
+; N/A                                     ; 145.90 MHz ( period = 6.854 ns )                    ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 9.317 ns                ;
+; N/A                                     ; 146.05 MHz ( period = 6.847 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b3[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.349 ns                ;
+; N/A                                     ; 146.05 MHz ( period = 6.847 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b3[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.349 ns                ;
+; N/A                                     ; 146.22 MHz ( period = 6.839 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.616 ns                ;
+; N/A                                     ; 146.22 MHz ( period = 6.839 ns )                    ; tictactoe:tictactoe0|count[0]                            ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.616 ns                ;
+; N/A                                     ; 147.45 MHz ( period = 6.782 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.826 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.523 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|count[3]                            ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.523 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|count[2]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.221 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|count[3]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.221 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|count[1]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.221 ns                ;
+; N/A                                     ; 148.24 MHz ( period = 6.746 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|count[0]                             ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 5.221 ns                ;
+; N/A                                     ; 148.72 MHz ( period = 6.724 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.742 ns                ;
+; N/A                                     ; 148.88 MHz ( period = 6.717 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.052 ns                ;
+; N/A                                     ; 148.96 MHz ( period = 6.713 ns )                    ; tictactoe:tictactoe0|b5[1]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.757 ns                ;
+; N/A                                     ; 149.01 MHz ( period = 6.711 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|cstate.winCheck                      ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.781 ns                ;
+; N/A                                     ; 149.05 MHz ( period = 6.709 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|cstate.P2_idle                       ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.779 ns                ;
+; N/A                                     ; 149.05 MHz ( period = 6.709 ns )                    ; tictactoe:tictactoe0|b1[0]                               ; tictactoe:tictactoe0|cstate.P1_idle                       ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.779 ns                ;
+; N/A                                     ; 149.16 MHz ( period = 6.704 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b7[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.889 ns                ;
+; N/A                                     ; 149.16 MHz ( period = 6.704 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b7[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.889 ns                ;
+; N/A                                     ; 149.43 MHz ( period = 6.692 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b8[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.857 ns                ;
+; N/A                                     ; 149.43 MHz ( period = 6.692 ns )                    ; tictactoe:tictactoe0|cstate.P1_press                     ; tictactoe:tictactoe0|b8[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 4.857 ns                ;
+; N/A                                     ; 149.68 MHz ( period = 6.681 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.458 ns                ;
+; N/A                                     ; 149.68 MHz ( period = 6.681 ns )                    ; tictactoe:tictactoe0|count[1]                            ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.458 ns                ;
+; N/A                                     ; 150.04 MHz ( period = 6.665 ns )                    ; tictactoe:tictactoe0|b4[0]                               ; tictactoe:tictactoe0|cstate.OVER                          ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.692 ns                ;
+; N/A                                     ; 150.11 MHz ( period = 6.662 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.730 ns                ;
+; N/A                                     ; 150.26 MHz ( period = 6.655 ns )                    ; tictactoe:tictactoe0|b3[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.673 ns                ;
+; N/A                                     ; 150.42 MHz ( period = 6.648 ns )                    ; tictactoe:tictactoe0|b7[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.983 ns                ;
+; N/A                                     ; 151.42 MHz ( period = 6.604 ns )                    ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 8.907 ns                ;
+; N/A                                     ; 151.45 MHz ( period = 6.603 ns )                    ; display_vhd:module_vga|vga:vga_driver0|v_count[8]        ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.971 ns                ;
+; N/A                                     ; 151.45 MHz ( period = 6.603 ns )                    ; display_vhd:module_vga|vga:vga_driver0|v_count[8]        ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.971 ns                ;
+; N/A                                     ; 151.61 MHz ( period = 6.596 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.373 ns                ;
+; N/A                                     ; 151.61 MHz ( period = 6.596 ns )                    ; tictactoe:tictactoe0|count[2]                            ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.373 ns                ;
+; N/A                                     ; 151.68 MHz ( period = 6.593 ns )                    ; tictactoe:tictactoe0|b0[0]                               ; tictactoe:tictactoe0|win[0]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.661 ns                ;
+; N/A                                     ; 152.07 MHz ( period = 6.576 ns )                    ; tictactoe:tictactoe0|b3[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.594 ns                ;
+; N/A                                     ; 152.28 MHz ( period = 6.567 ns )                    ; tictactoe:tictactoe0|b7[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.902 ns                ;
+; N/A                                     ; 152.35 MHz ( period = 6.564 ns )                    ; display_vhd:module_vga|vga:vga_driver0|v_count[5]        ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.932 ns                ;
+; N/A                                     ; 152.35 MHz ( period = 6.564 ns )                    ; display_vhd:module_vga|vga:vga_driver0|v_count[5]        ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 3.932 ns                ;
+; N/A                                     ; 152.44 MHz ( period = 6.560 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|b2[0]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.321 ns                ;
+; N/A                                     ; 152.44 MHz ( period = 6.560 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|b2[1]                                ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 6.321 ns                ;
+; N/A                                     ; 152.49 MHz ( period = 6.558 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|cstate.winCheck                      ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.589 ns                ;
+; N/A                                     ; 152.53 MHz ( period = 6.556 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|cstate.P2_idle                       ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.587 ns                ;
+; N/A                                     ; 152.53 MHz ( period = 6.556 ns )                    ; tictactoe:tictactoe0|b2[0]                               ; tictactoe:tictactoe0|cstate.P1_idle                       ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.587 ns                ;
+; N/A                                     ; 152.63 MHz ( period = 6.552 ns )                    ; tictactoe:tictactoe0|b0[1]                               ; tictactoe:tictactoe0|win[1]                               ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.620 ns                ;
+; N/A                                     ; 152.84 MHz ( period = 6.543 ns )                    ; tictactoe:tictactoe0|b2[1]                               ; tictactoe:tictactoe0|cstate.winCheck                      ; CLOCK_50   ; CLOCK_50 ; None                        ; None                      ; 7.574 ns                ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                                                          ;                                                           ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Hold: 'CLOCK_50'                                                                                                                                                                                                                                                       ;
++------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Minimum Slack                            ; From                                                     ; To                                                        ; From Clock ; To Clock ; Required Hold Relationship ; Required Shortest P2P Time ; Actual Shortest P2P Time ;
++------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+; Not operational: Clock Skew > Data Delay ; tictactoe:tictactoe0|count[3]                            ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 3.715 ns                 ;
+; Not operational: Clock Skew > Data Delay ; tictactoe:tictactoe0|count[2]                            ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 3.741 ns                 ;
+; Not operational: Clock Skew > Data Delay ; tictactoe:tictactoe0|count[1]                            ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 3.813 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 4.817 ns                 ;
+; Not operational: Clock Skew > Data Delay ; tictactoe:tictactoe0|count[0]                            ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 3.891 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.058 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 5.601 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 5.765 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 5.844 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.485 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.401 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.426 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.884 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.261 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.662 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.676 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.334 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.631 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.411 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.461 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.535 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0] ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.632 ns                 ;
+; Not operational: Clock Skew > Data Delay ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]    ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; CLOCK_50   ; CLOCK_50 ; None                       ; None                       ; 6.993 ns                 ;
++------------------------------------------+----------------------------------------------------------+-----------------------------------------------------------+------------+----------+----------------------------+----------------------------+--------------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; tsu                                                                                          ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+; Slack ; Required tsu ; Actual tsu ; From  ; To                                    ; To Clock ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+; N/A   ; None         ; 3.889 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
+; N/A   ; None         ; 3.604 ns   ; SW[1] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
+; N/A   ; None         ; 1.822 ns   ; SW[1] ; tictactoe:tictactoe0|cstate.P2_idle   ; CLOCK_50 ;
+; N/A   ; None         ; 1.695 ns   ; SW[2] ; tictactoe:tictactoe0|count[2]         ; CLOCK_50 ;
+; N/A   ; None         ; 1.695 ns   ; SW[2] ; tictactoe:tictactoe0|count[3]         ; CLOCK_50 ;
+; N/A   ; None         ; 1.695 ns   ; SW[2] ; tictactoe:tictactoe0|count[1]         ; CLOCK_50 ;
+; N/A   ; None         ; 1.695 ns   ; SW[2] ; tictactoe:tictactoe0|count[0]         ; CLOCK_50 ;
+; N/A   ; None         ; 1.517 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P2_idle   ; CLOCK_50 ;
+; N/A   ; None         ; 1.251 ns   ; SW[2] ; tictactoe:tictactoe0|b2[0]            ; CLOCK_50 ;
+; N/A   ; None         ; 1.251 ns   ; SW[2] ; tictactoe:tictactoe0|b2[1]            ; CLOCK_50 ;
+; N/A   ; None         ; 0.903 ns   ; SW[1] ; tictactoe:tictactoe0|cstate.P2_press  ; CLOCK_50 ;
+; N/A   ; None         ; 0.700 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P2_press  ; CLOCK_50 ;
+; N/A   ; None         ; 0.700 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P1_press  ; CLOCK_50 ;
+; N/A   ; None         ; 0.699 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P1_select ; CLOCK_50 ;
+; N/A   ; None         ; 0.690 ns   ; SW[0] ; tictactoe:tictactoe0|cstate.P2_select ; CLOCK_50 ;
+; N/A   ; None         ; 0.610 ns   ; SW[1] ; tictactoe:tictactoe0|cstate.P1_press  ; CLOCK_50 ;
+; N/A   ; None         ; 0.413 ns   ; SW[2] ; tictactoe:tictactoe0|b0[1]            ; CLOCK_50 ;
+; N/A   ; None         ; 0.413 ns   ; SW[2] ; tictactoe:tictactoe0|b0[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.002 ns  ; SW[2] ; tictactoe:tictactoe0|b3[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.002 ns  ; SW[2] ; tictactoe:tictactoe0|b3[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.153 ns  ; SW[2] ; tictactoe:tictactoe0|b8[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.153 ns  ; SW[2] ; tictactoe:tictactoe0|b8[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.491 ns  ; SW[2] ; tictactoe:tictactoe0|b5[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.491 ns  ; SW[2] ; tictactoe:tictactoe0|b5[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.578 ns  ; SW[2] ; tictactoe:tictactoe0|b1[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.578 ns  ; SW[2] ; tictactoe:tictactoe0|b1[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.627 ns  ; SW[2] ; tictactoe:tictactoe0|b4[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.627 ns  ; SW[2] ; tictactoe:tictactoe0|b4[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.803 ns  ; SW[2] ; tictactoe:tictactoe0|b7[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.803 ns  ; SW[2] ; tictactoe:tictactoe0|b7[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.816 ns  ; SW[2] ; tictactoe:tictactoe0|b6[1]            ; CLOCK_50 ;
+; N/A   ; None         ; -0.816 ns  ; SW[2] ; tictactoe:tictactoe0|b6[0]            ; CLOCK_50 ;
+; N/A   ; None         ; -1.089 ns  ; SW[2] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
+; N/A   ; None         ; -1.808 ns  ; SW[2] ; tictactoe:tictactoe0|win[1]           ; CLOCK_50 ;
+; N/A   ; None         ; -1.877 ns  ; SW[2] ; tictactoe:tictactoe0|win[0]           ; CLOCK_50 ;
+; N/A   ; None         ; -2.460 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[2]     ; CLOCK_50 ;
+; N/A   ; None         ; -2.460 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[1]     ; CLOCK_50 ;
+; N/A   ; None         ; -2.460 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[0]     ; CLOCK_50 ;
+; N/A   ; None         ; -2.460 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[3]     ; CLOCK_50 ;
+; N/A   ; None         ; -3.114 ns  ; SW[2] ; tictactoe:tictactoe0|cstate.OVER      ; CLOCK_50 ;
++-------+--------------+------------+-------+---------------------------------------+----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tco                                                                                                                                                                                            ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------------------------------------------------------+----------+------------+
+; Slack                                   ; Required tco                                        ; Actual tco ; From                                                      ; To       ; From Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------------------------------------------------------+----------+------------+
+; N/A                                     ; None                                                ; 27.879 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.743 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.694 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.639 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.512 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.456 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.323 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.138 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.018 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 27.002 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.953 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.938 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.899 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.898 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.809 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.771 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.770 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.766 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.739 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.716 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.715 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.634 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.585 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.585 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.582 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.581 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.530 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.529 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.519 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.403 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.393 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.383 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.358 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.347 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.334 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.279 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.257 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.232 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]     ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.214 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.197 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.158 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.152 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.121 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.096 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.072 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.068 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.029 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.025 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 26.017 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.998 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.975 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.963 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.890 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.844 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.840 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.839 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.839 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.835 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.834 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.829 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.819 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.790 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.788 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.778 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.701 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.700 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.657 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.631 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.631 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.630 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.628 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.617 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.611 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.610 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.610 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.607 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.606 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.599 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.590 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.578 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.572 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.572 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.569 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.552 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.551 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.551 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.549 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.547 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.539 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.531 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.528 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.512 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.494 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.494 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.491 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]     ; VGA_R[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.490 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.476 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.474 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.472 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.463 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.449 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.420 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.414 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.406 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.379 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.359 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.356 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.341 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.336 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.336 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.333 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.321 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.320 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.316 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.316 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.299 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.282 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.277 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.275 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.275 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.271 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.262 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.261 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.255 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.249 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.240 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.232 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.225 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.221 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.204 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.187 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.183 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.176 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.169 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.156 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.156 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.156 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.152 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.144 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.136 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.123 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]     ; VGA_R[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.122 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.117 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.094 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.063 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.046 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.044 ns  ; tictactoe:tictactoe0|count[0]                             ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.043 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.029 ns  ; tictactoe:tictactoe0|count[1]                             ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.026 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.018 ns  ; tictactoe:tictactoe0|count[2]                             ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.009 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.009 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 25.005 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.998 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.989 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.985 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.964 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.963 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.959 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.938 ns  ; tictactoe:tictactoe0|count[3]                             ; VGA_R[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.907 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.878 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.878 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.875 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.872 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]     ; VGA_R[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.866 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.863 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.858 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]     ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.858 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.853 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_B[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.845 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.843 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.843 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.842 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.840 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.829 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.827 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.823 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]  ; VGA_B[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.823 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]     ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.819 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_B[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.817 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.789 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]  ; VGA_B[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.770 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_B[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.760 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_B[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.745 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_G[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.745 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_G[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.742 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_G[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.736 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.730 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]  ; VGA_B[3] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.725 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]     ; VGA_G[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.719 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[2] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.698 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]  ; VGA_G[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.669 ns  ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; VGA_B[1] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.659 ns  ; display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3] ; VGA_B[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.658 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.619 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]  ; VGA_R[4] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.618 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]  ; VGA_B[0] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.610 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]     ; VGA_R[5] ; CLOCK_50   ;
+; N/A                                     ; None                                                ; 24.601 ns  ; display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]     ; VGA_G[3] ; CLOCK_50   ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;                                                           ;          ;            ;
++-----------------------------------------+-----------------------------------------------------+------------+-----------------------------------------------------------+----------+------------+
+
+
++----------------------------------------------------------------------------------------------------+
+; th                                                                                                 ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+; Minimum Slack ; Required th ; Actual th ; From  ; To                                    ; To Clock ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+; N/A           ; None        ; 3.362 ns  ; SW[2] ; tictactoe:tictactoe0|cstate.OVER      ; CLOCK_50 ;
+; N/A           ; None        ; 2.708 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[2]     ; CLOCK_50 ;
+; N/A           ; None        ; 2.708 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[1]     ; CLOCK_50 ;
+; N/A           ; None        ; 2.708 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[0]     ; CLOCK_50 ;
+; N/A           ; None        ; 2.708 ns  ; SW[2] ; tictactoe:tictactoe0|countTurn[3]     ; CLOCK_50 ;
+; N/A           ; None        ; 2.125 ns  ; SW[2] ; tictactoe:tictactoe0|win[0]           ; CLOCK_50 ;
+; N/A           ; None        ; 2.056 ns  ; SW[2] ; tictactoe:tictactoe0|win[1]           ; CLOCK_50 ;
+; N/A           ; None        ; 1.337 ns  ; SW[2] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
+; N/A           ; None        ; 1.064 ns  ; SW[2] ; tictactoe:tictactoe0|b6[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 1.064 ns  ; SW[2] ; tictactoe:tictactoe0|b6[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 1.051 ns  ; SW[2] ; tictactoe:tictactoe0|b7[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 1.051 ns  ; SW[2] ; tictactoe:tictactoe0|b7[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.875 ns  ; SW[2] ; tictactoe:tictactoe0|b4[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.875 ns  ; SW[2] ; tictactoe:tictactoe0|b4[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.826 ns  ; SW[2] ; tictactoe:tictactoe0|b1[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.826 ns  ; SW[2] ; tictactoe:tictactoe0|b1[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.739 ns  ; SW[2] ; tictactoe:tictactoe0|b5[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.739 ns  ; SW[2] ; tictactoe:tictactoe0|b5[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.401 ns  ; SW[2] ; tictactoe:tictactoe0|b8[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.401 ns  ; SW[2] ; tictactoe:tictactoe0|b8[1]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.250 ns  ; SW[2] ; tictactoe:tictactoe0|b3[0]            ; CLOCK_50 ;
+; N/A           ; None        ; 0.250 ns  ; SW[2] ; tictactoe:tictactoe0|b3[1]            ; CLOCK_50 ;
+; N/A           ; None        ; -0.165 ns ; SW[2] ; tictactoe:tictactoe0|b0[1]            ; CLOCK_50 ;
+; N/A           ; None        ; -0.165 ns ; SW[2] ; tictactoe:tictactoe0|b0[0]            ; CLOCK_50 ;
+; N/A           ; None        ; -0.362 ns ; SW[1] ; tictactoe:tictactoe0|cstate.P1_press  ; CLOCK_50 ;
+; N/A           ; None        ; -0.442 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P2_select ; CLOCK_50 ;
+; N/A           ; None        ; -0.451 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P1_select ; CLOCK_50 ;
+; N/A           ; None        ; -0.452 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P2_press  ; CLOCK_50 ;
+; N/A           ; None        ; -0.452 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P1_press  ; CLOCK_50 ;
+; N/A           ; None        ; -0.655 ns ; SW[1] ; tictactoe:tictactoe0|cstate.P2_press  ; CLOCK_50 ;
+; N/A           ; None        ; -1.003 ns ; SW[2] ; tictactoe:tictactoe0|b2[0]            ; CLOCK_50 ;
+; N/A           ; None        ; -1.003 ns ; SW[2] ; tictactoe:tictactoe0|b2[1]            ; CLOCK_50 ;
+; N/A           ; None        ; -1.269 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P2_idle   ; CLOCK_50 ;
+; N/A           ; None        ; -1.447 ns ; SW[2] ; tictactoe:tictactoe0|count[2]         ; CLOCK_50 ;
+; N/A           ; None        ; -1.447 ns ; SW[2] ; tictactoe:tictactoe0|count[3]         ; CLOCK_50 ;
+; N/A           ; None        ; -1.447 ns ; SW[2] ; tictactoe:tictactoe0|count[1]         ; CLOCK_50 ;
+; N/A           ; None        ; -1.447 ns ; SW[2] ; tictactoe:tictactoe0|count[0]         ; CLOCK_50 ;
+; N/A           ; None        ; -1.574 ns ; SW[1] ; tictactoe:tictactoe0|cstate.P2_idle   ; CLOCK_50 ;
+; N/A           ; None        ; -3.356 ns ; SW[1] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
+; N/A           ; None        ; -3.641 ns ; SW[0] ; tictactoe:tictactoe0|cstate.P1_idle   ; CLOCK_50 ;
++---------------+-------------+-----------+-------+---------------------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 222 10/21/2009 SJ Web Edition
+    Info: Processing started: Fri Nov 29 09:30:52 2019
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off top_level_vhd -c top_level_vhd --timing_analysis_only
+Warning: Timing Analysis is analyzing one or more combinational loops as latches
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3]" is a latch
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[2]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[2]~14"
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_green[3]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_green[3]~15"
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_green[2]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_green[2]~14"
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]~56"
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[3]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[3]~55"
+Warning: Found combinational loop of 2 nodes
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[2]"
+    Warning: Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[2]~54"
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "CLOCK_50" is an undefined clock
+Warning: Found 175 node(s) in clock paths which may be acting as ripple and/or gated clocks -- node(s) analyzed as buffer(s) resulting in clock skew
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~29" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~7" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor2~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor3~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan47~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~19" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~30" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~27" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~17" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~34" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor2~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~32" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor3~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor3~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~6" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~8" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan30~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan36~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~24" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~23" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~21" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~37" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan25~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~26" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~18" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~20" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~31" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~15" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~28" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~38" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor2~7" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~33" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor3~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~9" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor2~6" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~25" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~22" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan20~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~6" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan23~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor3~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~10" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~33" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor2~5" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~34" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~36" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~10" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~39" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~11" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~5" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~42" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~41" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~28" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~29" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~26" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~25" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan21~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~13" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~16" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~5" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~7" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan14~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~11" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan19~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan20~2" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[3]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~43" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~30" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~27" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~14" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~14" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~8" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~12" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan19~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan20~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan44~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan27~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan27~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan37~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[5]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[0]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[1]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~7" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan15~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan20~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan16~1" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[8]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan16~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[6]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan17~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[0]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[1]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[2]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[3]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~31" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~22" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~23" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~12" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~3" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|grid~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan28~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan29~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan27~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~10" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~6" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan25~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan24~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[7]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~4" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan18~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[9]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan16~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan17~1" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[7]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[4]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan21~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[6]" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[5]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan14~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan46~0" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~45" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~24" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~21" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~2" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~9" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~11" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~8" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~5" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~1" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|win_i~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|o_pixel_row[8]" as buffer
+    Info: Detected gated clock "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~0" as buffer
+    Info: Detected ripple clock "display_vhd:module_vga|vga:vga_driver0|clock_25MHz" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|count[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|count[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|count[3]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|count[2]" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal6~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal12~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal4~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal10~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal0~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal2~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal8~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal14~0" as buffer
+    Info: Detected gated clock "tictactoe:tictactoe0|Equal16~0" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b3[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b3[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b6[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b6[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b2[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b2[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b5[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b5[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b0[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b0[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b1[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b1[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b4[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b4[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b7[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b7[0]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b8[1]" as buffer
+    Info: Detected ripple clock "tictactoe:tictactoe0|b8[0]" as buffer
+    Info: Detected ripple clock "CLOCKDIV:detik|DIVOUT" as buffer
+Info: Clock "CLOCK_50" has Internal fmax of 94.41 MHz between source register "tictactoe:tictactoe0|b1[0]" and destination register "tictactoe:tictactoe0|count[2]" (period= 10.592 ns)
+    Info: + Longest register to register delay is 10.376 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X33_Y18_N31; Fanout = 7; REG Node = 'tictactoe:tictactoe0|b1[0]'
+        Info: 2: + IC(1.958 ns) + CELL(0.322 ns) = 2.280 ns; Loc. = LCCOMB_X31_Y19_N22; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|process_0~12'
+        Info: 3: + IC(1.499 ns) + CELL(0.178 ns) = 3.957 ns; Loc. = LCCOMB_X33_Y19_N4; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|process_0~14'
+        Info: 4: + IC(0.298 ns) + CELL(0.322 ns) = 4.577 ns; Loc. = LCCOMB_X33_Y19_N28; Fanout = 4; COMB Node = 'tictactoe:tictactoe0|process_0~18'
+        Info: 5: + IC(1.180 ns) + CELL(0.178 ns) = 5.935 ns; Loc. = LCCOMB_X29_Y17_N2; Fanout = 3; COMB Node = 'tictactoe:tictactoe0|Selector3~0'
+        Info: 6: + IC(1.424 ns) + CELL(0.178 ns) = 7.537 ns; Loc. = LCCOMB_X35_Y19_N0; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|count[3]~2'
+        Info: 7: + IC(0.797 ns) + CELL(0.177 ns) = 8.511 ns; Loc. = LCCOMB_X34_Y20_N10; Fanout = 4; COMB Node = 'tictactoe:tictactoe0|count[3]~5'
+        Info: 8: + IC(1.107 ns) + CELL(0.758 ns) = 10.376 ns; Loc. = LCFF_X32_Y19_N5; Fanout = 10; REG Node = 'tictactoe:tictactoe0|count[2]'
+        Info: Total cell delay = 2.113 ns ( 20.36 % )
+        Info: Total interconnect delay = 8.263 ns ( 79.64 % )
+    Info: - Smallest clock skew is 0.023 ns
+        Info: + Shortest clock path from clock "CLOCK_50" to destination register is 5.474 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.716 ns) + CELL(0.879 ns) = 3.621 ns; Loc. = LCFF_X34_Y16_N27; Fanout = 24; REG Node = 'CLOCKDIV:detik|DIVOUT'
+            Info: 3: + IC(1.251 ns) + CELL(0.602 ns) = 5.474 ns; Loc. = LCFF_X32_Y19_N5; Fanout = 10; REG Node = 'tictactoe:tictactoe0|count[2]'
+            Info: Total cell delay = 2.507 ns ( 45.80 % )
+            Info: Total interconnect delay = 2.967 ns ( 54.20 % )
+        Info: - Longest clock path from clock "CLOCK_50" to source register is 5.451 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.716 ns) + CELL(0.879 ns) = 3.621 ns; Loc. = LCFF_X34_Y16_N27; Fanout = 24; REG Node = 'CLOCKDIV:detik|DIVOUT'
+            Info: 3: + IC(1.228 ns) + CELL(0.602 ns) = 5.451 ns; Loc. = LCFF_X33_Y18_N31; Fanout = 7; REG Node = 'tictactoe:tictactoe0|b1[0]'
+            Info: Total cell delay = 2.507 ns ( 45.99 % )
+            Info: Total interconnect delay = 2.944 ns ( 54.01 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Micro setup delay of destination is -0.038 ns
+Warning: Circuit may not operate. Detected 23 non-operational path(s) clocked by clock "CLOCK_50" with clock skew larger than data delay. See Compilation Report for details.
+Info: Found hold time violation between source  pin or register "tictactoe:tictactoe0|count[3]" and destination pin or register "display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3]" for clock "CLOCK_50" (Hold time is 8.87 ns)
+    Info: + Largest clock skew is 12.862 ns
+        Info: + Longest clock path from clock "CLOCK_50" to destination register is 18.336 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.690 ns) + CELL(0.879 ns) = 3.595 ns; Loc. = LCFF_X30_Y17_N21; Fanout = 21; REG Node = 'display_vhd:module_vga|vga:vga_driver0|clock_25MHz'
+            Info: 3: + IC(1.235 ns) + CELL(0.879 ns) = 5.709 ns; Loc. = LCFF_X32_Y16_N19; Fanout = 13; REG Node = 'display_vhd:module_vga|vga:vga_driver0|o_pixel_column[4]'
+            Info: 4: + IC(0.908 ns) + CELL(0.322 ns) = 6.939 ns; Loc. = LCCOMB_X32_Y16_N6; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~21'
+            Info: 5: + IC(1.432 ns) + CELL(0.178 ns) = 8.549 ns; Loc. = LCCOMB_X32_Y17_N22; Fanout = 4; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~22'
+            Info: 6: + IC(0.836 ns) + CELL(0.544 ns) = 9.929 ns; Loc. = LCCOMB_X34_Y17_N30; Fanout = 2; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|titleColor1~3'
+            Info: 7: + IC(0.822 ns) + CELL(0.521 ns) = 11.272 ns; Loc. = LCCOMB_X33_Y17_N16; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~39'
+            Info: 8: + IC(0.297 ns) + CELL(0.322 ns) = 11.891 ns; Loc. = LCCOMB_X33_Y17_N18; Fanout = 3; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~40'
+            Info: 9: + IC(1.438 ns) + CELL(0.178 ns) = 13.507 ns; Loc. = LCCOMB_X34_Y18_N8; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~44'
+            Info: 10: + IC(0.526 ns) + CELL(0.322 ns) = 14.355 ns; Loc. = LCCOMB_X33_Y18_N0; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~45'
+            Info: 11: + IC(0.307 ns) + CELL(0.178 ns) = 14.840 ns; Loc. = LCCOMB_X33_Y18_N22; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~46'
+            Info: 12: + IC(1.791 ns) + CELL(0.000 ns) = 16.631 ns; Loc. = CLKCTRL_G4; Fanout = 13; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~46clkctrl'
+            Info: 13: + IC(1.383 ns) + CELL(0.322 ns) = 18.336 ns; Loc. = LCCOMB_X33_Y17_N8; Fanout = 1; REG Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3]'
+            Info: Total cell delay = 5.671 ns ( 30.93 % )
+            Info: Total interconnect delay = 12.665 ns ( 69.07 % )
+        Info: - Shortest clock path from clock "CLOCK_50" to source register is 5.474 ns
+            Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+            Info: 2: + IC(1.716 ns) + CELL(0.879 ns) = 3.621 ns; Loc. = LCFF_X34_Y16_N27; Fanout = 24; REG Node = 'CLOCKDIV:detik|DIVOUT'
+            Info: 3: + IC(1.251 ns) + CELL(0.602 ns) = 5.474 ns; Loc. = LCFF_X32_Y19_N7; Fanout = 10; REG Node = 'tictactoe:tictactoe0|count[3]'
+            Info: Total cell delay = 2.507 ns ( 45.80 % )
+            Info: Total interconnect delay = 2.967 ns ( 54.20 % )
+    Info: - Micro clock to output delay of source is 0.277 ns
+    Info: - Shortest register to register delay is 3.715 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X32_Y19_N7; Fanout = 10; REG Node = 'tictactoe:tictactoe0|count[3]'
+        Info: 2: + IC(0.661 ns) + CELL(0.418 ns) = 1.079 ns; Loc. = LCCOMB_X32_Y19_N2; Fanout = 5; COMB Node = 'tictactoe:tictactoe0|Equal6~0'
+        Info: 3: + IC(0.893 ns) + CELL(0.322 ns) = 2.294 ns; Loc. = LCCOMB_X33_Y17_N22; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~11'
+        Info: 4: + IC(0.295 ns) + CELL(0.178 ns) = 2.767 ns; Loc. = LCCOMB_X33_Y17_N12; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~12'
+        Info: 5: + IC(0.290 ns) + CELL(0.178 ns) = 3.235 ns; Loc. = LCCOMB_X33_Y17_N2; Fanout = 3; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[7]~13'
+        Info: 6: + IC(0.302 ns) + CELL(0.178 ns) = 3.715 ns; Loc. = LCCOMB_X33_Y17_N8; Fanout = 1; REG Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_blue[3]'
+        Info: Total cell delay = 1.274 ns ( 34.29 % )
+        Info: Total interconnect delay = 2.441 ns ( 65.71 % )
+    Info: + Micro hold delay of destination is 0.000 ns
+    Info: Delay path is controlled by inverted clocks -- if clock duty cycle is 50%, fmax is divided by two
+Info: tsu for register "tictactoe:tictactoe0|cstate.P1_idle" (data pin = "SW[0]", clock pin = "CLOCK_50") is 3.889 ns
+    Info: + Longest pin to register delay is 10.687 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.874 ns) = 0.874 ns; Loc. = PIN_T21; Fanout = 6; PIN Node = 'SW[0]'
+        Info: 2: + IC(6.200 ns) + CELL(0.521 ns) = 7.595 ns; Loc. = LCCOMB_X34_Y20_N30; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|Selector0~0'
+        Info: 3: + IC(0.879 ns) + CELL(0.521 ns) = 8.995 ns; Loc. = LCCOMB_X35_Y19_N30; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|Selector0~1'
+        Info: 4: + IC(1.135 ns) + CELL(0.461 ns) = 10.591 ns; Loc. = LCCOMB_X34_Y20_N24; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|Selector0~2'
+        Info: 5: + IC(0.000 ns) + CELL(0.096 ns) = 10.687 ns; Loc. = LCFF_X34_Y20_N25; Fanout = 4; REG Node = 'tictactoe:tictactoe0|cstate.P1_idle'
+        Info: Total cell delay = 2.473 ns ( 23.14 % )
+        Info: Total interconnect delay = 8.214 ns ( 76.86 % )
+    Info: + Micro setup delay of destination is -0.038 ns
+    Info: - Shortest clock path from clock "CLOCK_50" to destination register is 6.760 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.716 ns) + CELL(0.879 ns) = 3.621 ns; Loc. = LCFF_X34_Y16_N27; Fanout = 24; REG Node = 'CLOCKDIV:detik|DIVOUT'
+        Info: 3: + IC(1.555 ns) + CELL(0.000 ns) = 5.176 ns; Loc. = CLKCTRL_G5; Fanout = 16; COMB Node = 'CLOCKDIV:detik|DIVOUT~clkctrl'
+        Info: 4: + IC(0.982 ns) + CELL(0.602 ns) = 6.760 ns; Loc. = LCFF_X34_Y20_N25; Fanout = 4; REG Node = 'tictactoe:tictactoe0|cstate.P1_idle'
+        Info: Total cell delay = 2.507 ns ( 37.09 % )
+        Info: Total interconnect delay = 4.253 ns ( 62.91 % )
+Info: tco from clock "CLOCK_50" to destination pin "VGA_R[3]" through register "display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]" is 27.879 ns
+    Info: + Longest clock path from clock "CLOCK_50" to source register is 5.432 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.690 ns) + CELL(0.879 ns) = 3.595 ns; Loc. = LCFF_X30_Y17_N21; Fanout = 21; REG Node = 'display_vhd:module_vga|vga:vga_driver0|clock_25MHz'
+        Info: 3: + IC(1.235 ns) + CELL(0.602 ns) = 5.432 ns; Loc. = LCFF_X32_Y16_N23; Fanout = 15; REG Node = 'display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]'
+        Info: Total cell delay = 2.507 ns ( 46.15 % )
+        Info: Total interconnect delay = 2.925 ns ( 53.85 % )
+    Info: + Micro clock to output delay of source is 0.277 ns
+    Info: + Longest register to pin delay is 22.170 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X32_Y16_N23; Fanout = 15; REG Node = 'display_vhd:module_vga|vga:vga_driver0|o_pixel_column[2]'
+        Info: 2: + IC(1.908 ns) + CELL(0.516 ns) = 2.424 ns; Loc. = LCCOMB_X33_Y16_N24; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan16~1'
+        Info: 3: + IC(0.543 ns) + CELL(0.178 ns) = 3.145 ns; Loc. = LCCOMB_X33_Y16_N30; Fanout = 3; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|LessThan16~2'
+        Info: 4: + IC(1.227 ns) + CELL(0.319 ns) = 4.691 ns; Loc. = LCCOMB_X30_Y17_N12; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|process_0~16'
+        Info: 5: + IC(0.318 ns) + CELL(0.457 ns) = 5.466 ns; Loc. = LCCOMB_X30_Y17_N16; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|grid~14'
+        Info: 6: + IC(0.536 ns) + CELL(0.178 ns) = 6.180 ns; Loc. = LCCOMB_X30_Y17_N22; Fanout = 5; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|grid~13'
+        Info: 7: + IC(3.195 ns) + CELL(0.521 ns) = 9.896 ns; Loc. = LCCOMB_X34_Y18_N22; Fanout = 2; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[7]~18'
+        Info: 8: + IC(0.306 ns) + CELL(0.521 ns) = 10.723 ns; Loc. = LCCOMB_X34_Y18_N28; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]~47'
+        Info: 9: + IC(1.422 ns) + CELL(0.322 ns) = 12.467 ns; Loc. = LCCOMB_X30_Y19_N20; Fanout = 1; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]~48'
+        Info: 10: + IC(0.863 ns) + CELL(0.322 ns) = 13.652 ns; Loc. = LCCOMB_X30_Y18_N10; Fanout = 2; COMB Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]~49'
+        Info: 11: + IC(0.000 ns) + CELL(1.690 ns) = 15.342 ns; Loc. = LCCOMB_X30_Y18_N12; Fanout = 2; COMB LOOP Node = 'display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]'
+            Info: Loc. = LCCOMB_X30_Y18_N12; Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]"
+            Info: Loc. = LCCOMB_X30_Y18_N30; Node "display_vhd:module_vga|color_rom_vhd:color_rom0|o_red[5]~56"
+        Info: 12: + IC(1.169 ns) + CELL(0.491 ns) = 17.002 ns; Loc. = LCCOMB_X27_Y20_N0; Fanout = 1; COMB Node = 'display_vhd:module_vga|VGA_R[3]~2'
+        Info: 13: + IC(2.192 ns) + CELL(2.976 ns) = 22.170 ns; Loc. = PIN_B7; Fanout = 0; PIN Node = 'VGA_R[3]'
+        Info: Total cell delay = 8.491 ns ( 38.30 % )
+        Info: Total interconnect delay = 13.679 ns ( 61.70 % )
+Info: th for register "tictactoe:tictactoe0|cstate.OVER" (data pin = "SW[2]", clock pin = "CLOCK_50") is 3.362 ns
+    Info: + Longest clock path from clock "CLOCK_50" to destination register is 6.758 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.026 ns) = 1.026 ns; Loc. = PIN_L1; Fanout = 3; CLK Node = 'CLOCK_50'
+        Info: 2: + IC(1.716 ns) + CELL(0.879 ns) = 3.621 ns; Loc. = LCFF_X34_Y16_N27; Fanout = 24; REG Node = 'CLOCKDIV:detik|DIVOUT'
+        Info: 3: + IC(1.555 ns) + CELL(0.000 ns) = 5.176 ns; Loc. = CLKCTRL_G5; Fanout = 16; COMB Node = 'CLOCKDIV:detik|DIVOUT~clkctrl'
+        Info: 4: + IC(0.980 ns) + CELL(0.602 ns) = 6.758 ns; Loc. = LCFF_X35_Y18_N17; Fanout = 23; REG Node = 'tictactoe:tictactoe0|cstate.OVER'
+        Info: Total cell delay = 2.507 ns ( 37.10 % )
+        Info: Total interconnect delay = 4.251 ns ( 62.90 % )
+    Info: + Micro hold delay of destination is 0.286 ns
+    Info: - Shortest pin to register delay is 3.682 ns
+        Info: 1: + IC(0.000 ns) + CELL(1.036 ns) = 1.036 ns; Loc. = PIN_M22; Fanout = 14; PIN Node = 'SW[2]'
+        Info: 2: + IC(2.372 ns) + CELL(0.178 ns) = 3.586 ns; Loc. = LCCOMB_X35_Y18_N16; Fanout = 1; COMB Node = 'tictactoe:tictactoe0|Selector7~0'
+        Info: 3: + IC(0.000 ns) + CELL(0.096 ns) = 3.682 ns; Loc. = LCFF_X35_Y18_N17; Fanout = 23; REG Node = 'tictactoe:tictactoe0|cstate.OVER'
+        Info: Total cell delay = 1.310 ns ( 35.58 % )
+        Info: Total interconnect delay = 2.372 ns ( 64.42 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 23 warnings
+    Info: Peak virtual memory: 158 megabytes
+    Info: Processing ended: Fri Nov 29 09:30:52 2019
+    Info: Elapsed time: 00:00:00
+    Info: Total CPU time (on all processors): 00:00:01
+
+
